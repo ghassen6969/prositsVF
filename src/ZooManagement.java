@@ -1,19 +1,27 @@
 
-
-public class ZooManagement {
-
     public static void main(String[] args) {
-        // Création des objets avec les constructeurs paramétrés en suivant l'ordre des paramètres
-        Dolphin dolphin = new Dolphin("Cetacea", "Flipper", 5, true, "Ocean", 25.5f);
-        Penguin penguin = new Penguin("Spheniscidae", "Pingu", 3, false, "Antarctic", 200.0f);
-        Terrestrial lion = new Terrestrial("Felidae", "Simba", 8, true, 4);
+        // Création d'objets Aquatic, Penguin et Terrestrial
+        Aquatic dolphin = new Aquatic("Cetacean", "Dolphin", 5, true, "Ocean");
+        Penguin penguin = new Penguin("Bird", "Penguin", 3, false, "Arctic", 10.5f);
+        Terrestrial lion = new Terrestrial("Mammal", "Lion", 8, true, 4);
 
-        // Affichage des objets pour vérifier leur état
-        System.out.println(dolphin);
-        System.out.println(penguin);
-        System.out.println(lion);
-        // Appel de la méthode swim pour chaque type d'animal
-        dolphin.swim(); // Affichera "This dolphin is swimming."
-        penguin.swim(); // Affichera "This penguin is swimming."
+        // Test de la méthode eatMeat() pour Aquatic
+        System.out.println("\n=== Testing Aquatic ===");
+        dolphin.eatMeat(Food.MEAT);
+        dolphin.eatMeat(Food.PLANT);
+
+        // Test de la méthode swim() pour Aquatic et Penguin
+        dolphin.swim();
+        penguin.swim();
+
+        // Test de toutes les méthodes pour Terrestrial
+        System.out.println("\n=== Testing Terrestrial ===");
+        lion.eatMeat(Food.MEAT);
+        lion.eatPlant(Food.PLANT);
+        lion.eatPlantAndMeet(Food.BOTH);
+
+        // Vérification pour Penguin
+        System.out.println("\n=== Testing Penguin ===");
+        penguin.eatMeat(Food.MEAT); // Hérité d'Aquatic
     }
-}
+
